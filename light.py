@@ -3,7 +3,9 @@ import board
 import neopixel
 import time
 
-pixels = neopixel.NeoPixel(board.D12, 24)
-pixels[0] = (255, 0, 0)
+print(dir(board))
+pixels = neopixel.NeoPixel(board.D18, 16)
 
-time.sleep(3)
+pixels[0] = (255, 255, 255)
+pixels.show()
+time.sleep(2)
