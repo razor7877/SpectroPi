@@ -9,6 +9,7 @@ image_path = "image_" + str(time.time()) + ".jpg"
 subprocess.run(["raspistill", 
 	"-n",
 	"-t", "1",
+	"--ISO", "100" , # Lower ISO to not saturate the camera
 	"-o", image_path
 ])
 
