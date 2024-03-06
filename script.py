@@ -3,13 +3,14 @@ import subprocess
 import time
 
 # Generate unique path with timestamp
-image_path = "image_" + str(time.time()) + ".jpg"
+image_path = "images/image_" + str(time.time()) + ".jpg"
 
 # Execute command to take a picture with the camera and output it in the folder
 subprocess.run(["raspistill", 
 	"-n",
 	"-t", "1",
-	"-o", image_path
+	"--ISO", "100", # Lower ISO to prevent overexposition
+	"-o", image_path # Output path
 ])
 
 # Open the image and resize for quicker calculations
@@ -31,4 +32,4 @@ average[1] /= round(len(pixels))
 average[2] /= round(len(pixels))
 
 print("Manual average: " + str(average))
-print("1x1 resize: " + str(image.resize(1, 1)[0]))
+#print("1x1 resize: " + str(image.resize(1, 1)[0]))
