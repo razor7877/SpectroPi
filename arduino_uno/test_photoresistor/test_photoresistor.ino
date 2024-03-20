@@ -1,12 +1,15 @@
-int analogIn = A0;
-int val = 0;
+int analogIn = A0; // The photoresistor input pin
+int light_intensity = 0;
 
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  val = analogRead(analogIn);
-  Serial.println(val);
-  delay(100);
+  light_intensity = analogRead(analogIn);
+  
+  if (Serial.available() > 0) {
+    Serial.read(); // Empty serial buffer
+    Serial.println(light_intensity);
+  }
 }
