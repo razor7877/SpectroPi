@@ -18,7 +18,7 @@ void loop() {
     Serial.println("Received measure key");
 #endif
 
-    Serial.read(); // Empty serial buffer
+    String label = Serial.readString();
 
     while (index++ < array_size - 1) {
 #ifdef DEBUG_SERIAL
@@ -41,6 +41,7 @@ void loop() {
     avg_light /= array_size;
     index = 0;
 
-    Serial.println(avg_light);
+    String result = label + avg_light;
+    Serial.println(result);
   }
 }
